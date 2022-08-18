@@ -4,12 +4,13 @@
 
 struct ColorClassicStruct {
     // ADDED
-    name: String,
-    hex: String,
+    red: i32,
+    green: i32,
+    blue: i32,
 }
 
 // ADDED
-struct ColorTupleStruct(String, String);
+struct ColorTupleStruct(i32, i32, i32);
 
 #[derive(Debug)]
 struct UnitLikeStruct;
@@ -21,7 +22,7 @@ mod tests {
     #[test]
     fn classic_c_structs() {
         // ADDED
-        let green = ColorClassicStruct{name: "green".to_string(), hex: "#00FF00".to_string()};
+        let green = ColorClassicStruct{red: 0, green: 255, blue: 0};
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -31,7 +32,7 @@ mod tests {
     #[test]
     fn tuple_structs() {
         // ADDED
-        let green = ColorTupleStruct(String::from("green"), String::from("#00FF00"));
+        let green = ColorTupleStruct(0, 255, 0);
 
         assert_eq!(green.0, 0);
         assert_eq!(green.1, 255);
@@ -41,7 +42,7 @@ mod tests {
     #[test]
     fn unit_structs() {
         // ADDED
-        let unit_struct = UnitStruct;
+        let unit_struct = UnitLikeStruct;
         let message = format!("{:?}s are fun!", unit_struct);
 
         assert_eq!(message, "UnitLikeStructs are fun!");

@@ -10,7 +10,7 @@
 
 // Put your function here!
 // ADDED
-fn calculate_apple_price(qty: i8) -> i8 {
+fn calculate_price_of_apples(qty: i8) -> i8 {
     if qty > 40 {
         return qty
     }
